@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #5ce1f0;
+  font-size: 35px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.navbar i {
+  font-size: 40px;
+  color: white;
+  margin-right: 10px;
+}
+
+.navbar a {
+  color: white;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+/* Media Query for responsiveness */
+@media screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar a {
+    padding: 10px;
+  }
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh; /* 100% of the viewport height */
+}
+
+.center-div div {
+  text-align: center;
+  margin: 10px;
+}
+
+button {
+  border: none;
+  color: white;
+  border-radius: 5px;
+  height: 40px;
+  width: 200px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button.create {
+  background-color: #3e9340; /* Green */
+}
+
+button.read {
+  background-color: #50c5d2; /* Light Blue */
+}
+
+button.update {
+  background-color: #d6d627; /* Yellow */
+}
+
+button.delete {
+  background-color: #e74c3c; /* Red */
+}
