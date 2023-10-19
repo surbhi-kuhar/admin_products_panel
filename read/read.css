@@ -107,6 +107,17 @@ a {
   width: 80%;
 }
 
+#image-preview {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-size: cover;
+  display: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .close {
   color: #aaa;
   float: right;

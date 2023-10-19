@@ -37,6 +37,26 @@ function displayProducts(products, container) {
     var productItem = document.createElement("div");
     productItem.className = "product-item";
 
+    // Create a container div for the image and set its style
+    var productImageDiv = document.createElement("div");
+    productImageDiv.style.float = "left"; // Align image to the left
+    productImageDiv.style.marginRight = "10px"; // Add some space between image and text
+
+    // Create the image element and set its style
+    var productImage = document.createElement("img");
+    productImage.src = product.image; // Assuming product.image is the URL or base64 data
+    productImage.alt = product.name + " Image";
+    productImage.style.width = "100px"; // Set the desired width
+    productImage.style.height = "100px"; // Set the desired height
+
+    // Append the image to its container and the container to the product item
+    productImageDiv.appendChild(productImage);
+    productItem.appendChild(productImageDiv);
+
+    // Create elements for the product details
+    var productDetails = document.createElement("div");
+    productDetails.style.overflow = "hidden"; // Ensure text doesn't overlap with the image
+
     var productName = document.createElement("strong");
     productName.textContent = product.name;
 
@@ -45,6 +65,11 @@ function displayProducts(products, container) {
 
     var productPrice = document.createElement("p");
     productPrice.textContent = "Price: Rs." + product.price;
+
+    // Append elements to the product details container
+    productDetails.appendChild(productName);
+    productDetails.appendChild(productDescription);
+    productDetails.appendChild(productPrice);
 
     var editIcon = document.createElement("i");
     editIcon.className = "fas fa-edit";
@@ -68,6 +93,27 @@ function displayProducts(products, container) {
     closeButton.addEventListener("click", closeModal);
 
     // Event listener for the "Update Product" button in the modal
+    var image = document.querySelector("#update-image-input");
+    var uploadedImage = "";
+
+    image.addEventListener("change", () => {
+      const reader = new FileReader();
+
+      reader.addEventListener("load", () => {
+        uploadedImage = reader.result;
+
+        // Preview the selected image in the modal
+        document.querySelector("#image-preview").style.display = "block";
+        document.querySelector(
+          "#image-preview"
+        ).style.backgroundImage = `url(${uploadedImage})`;
+      });
+
+      if (image.files[0]) {
+        reader.readAsDataURL(image.files[0]);
+      }
+    });
+
     const updateProductButton = document.getElementById("updateProductBtn");
     updateProductButton.addEventListener("click", function () {
       // Get updated values from the modal inputs
@@ -79,6 +125,7 @@ function displayProducts(products, container) {
 
       // Update the product data in localStorage
       const existingProducts = getProductsFromLocalStorage();
+      console.log(existingProducts);
 
       // Find the index of the product to update
       const productIndex = existingProducts.findIndex(
@@ -89,6 +136,7 @@ function displayProducts(products, container) {
         // Update the product in the array
         existingProducts[productIndex].description = updatedProductDescription;
         existingProducts[productIndex].price = updatedProductPrice;
+        existingProducts[productIndex].image = uploadedImage;
 
         // Update the product data in localStorage
         localStorage.setItem("productData", JSON.stringify(existingProducts));

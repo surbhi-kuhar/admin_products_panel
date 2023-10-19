@@ -15,6 +15,7 @@ document
       name: productName,
       description: productDescription,
       price: productPrice,
+      image: uploadedImage,
     };
 
     var existingProducts =
@@ -35,3 +36,23 @@ document
     // Reset the form
     document.getElementById("form").reset();
   });
+
+var image = document.querySelector("#image-input");
+var uploadedImage = "";
+
+image.addEventListener("change", () => {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    uploadedImage = reader.result;
+    console.log(reader.result);
+
+    document.querySelector("#image-preview").style.display = "block";
+    document.querySelector(
+      "#image-preview"
+    ).style.backgroundImage = `url(${uploadedImage})`;
+  });
+
+  if (image.files[0]) {
+    reader.readAsDataURL(image.files[0]);
+  }
+});
