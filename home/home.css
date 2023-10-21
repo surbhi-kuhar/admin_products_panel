@@ -1,7 +1,12 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f4f4;
+}
+
+a {
+  text-decoration: none;
 }
 
 .navbar {
@@ -9,21 +14,21 @@ body {
   background-color: #5ce1f0;
   font-size: 35px;
   font-weight: 500;
-  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 10vh;
 }
 
 .navbar i {
   font-size: 40px;
   color: white;
   margin-right: 10px;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .navbar a {
-  color: white;
-}
-
-a{
-  text-decoration: none;
   color: white;
 }
 
@@ -39,12 +44,43 @@ a{
   }
 }
 
-.center-div {
+.main-div {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 90vh; /* 100% of the viewport height */
+}
+
+.sidebar {
+  width: 15%;
+  height: calc(100vh - 10vh);
+  padding: 20px;
+  text-align: center;
+  background-color: #c7e8ec;
+  position: fixed;
+  margin-top: 10vh;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar i {
+  font-size: 20px; /* Adjust the size as needed */
+  margin-right: 30px; /* Add space between the icon and text */
+}
+
+.sidebar li {
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  color: #333;
+  font-size: 18px;
+}
+
+.center-div {
+  width: 80%;
+  margin-left: 17%;
 }
 
 .center-div div {
@@ -52,29 +88,91 @@ a{
   margin: 10px;
 }
 
-button {
-  border: none;
-  color: white;
-  border-radius: 5px;
-  height: 40px;
-  width: 200px;
-  cursor: pointer;
-  font-size: 16px;
+.heading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.list-of-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.product-item {
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.product-item strong {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .product-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-item {
+    width: 100%;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+#image-preview {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-size: cover;
+  display: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-button.create {
-  background-color: #3e9340; /* Green */
+.close:hover {
+  color: black;
 }
 
-button.read {
-  background-color: #50c5d2; /* Light Blue */
-}
-
-button.update {
-  background-color: #d6d627; /* Yellow */
-}
-
-button.delete {
-  background-color: #e74c3c; /* Red */
+textarea,
+input {
+  width: 100%;
+  margin-bottom: 10px;
 }
