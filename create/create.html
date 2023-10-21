@@ -10,6 +10,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
     <link rel="stylesheet" href="create.css" />
   </head>
   <body>
@@ -40,7 +43,7 @@
           required
         />
 
-        <input type="file" id="image-input" accept="image/png, image/jpg, image/jpeg" required/>
+        <input type="file" id="image-input" accept="image/png, image/jpg, image/jpeg" />
         <div id="image-preview"></div>
 
         <button type="submit" id="submit-btn">
@@ -50,5 +53,6 @@
     </div>
 
     <script src="create.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

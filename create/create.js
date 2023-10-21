@@ -33,6 +33,14 @@ document
     // Store the updated array in localStorage
     localStorage.setItem("productData", updatedProductDataString);
 
+    Swal.fire("Success", "Product created successfully", "success").then(
+      (result) => {
+        if (result.isConfirmed) {
+          document.location.href = "../home/home.html";
+        }
+      }
+    );
+
     // Reset the form
     document.getElementById("form").reset();
   });

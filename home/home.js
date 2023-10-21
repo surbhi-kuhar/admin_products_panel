@@ -157,6 +157,7 @@ function getProductsFromLocalStorage() {
       // Create delete icon
       var deleteIcon = document.createElement("i");
       deleteIcon.className = "fas fa-trash-alt";
+      deleteIcon.style.color = "red";
       deleteIcon.addEventListener("click", function () {
         deleteProduct(product.name);
       });
