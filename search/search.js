@@ -1,5 +1,9 @@
 function performSearch() {
-  var query = searchInput.value;
+  var query = searchInput.value.trim(); // Trim any leading/trailing white spaces
+  if (query === "") {
+    searchResultsContainer.innerHTML = "Invalid product name"; // Clear the search results container
+    return;
+  }
   var results = searchProducts(query);
   displaySearchResults(results, searchResultsContainer);
 }
@@ -79,4 +83,6 @@ function displaySearchResults(results, container) {
     // Append the product item to the container
     container.appendChild(productItem);
   });
+
+  searchInput.value = "";
 }

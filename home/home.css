@@ -11,7 +11,7 @@ a {
 
 .navbar {
   overflow: hidden;
-  background-color: #5ce1f0;
+  background-color: rgb(50, 49, 49);
   font-size: 35px;
   font-weight: 500;
   position: fixed;
@@ -51,18 +51,20 @@ a {
 
 .sidebar {
   width: 15%;
-  height: calc(100vh - 10vh);
+  height: calc(100vh - 15vh);
   padding: 20px;
   text-align: center;
-  background-color: #c7e8ec;
+  background-color: white;
   position: fixed;
   margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
-
 }
 
 .sidebar i {
@@ -78,7 +80,9 @@ a {
   color: #333;
   font-size: 15px;
 }
-
+.admin{
+  width:100%;
+}
 .center-div {
   width: 80%;
   margin-left: 17%;
@@ -157,8 +161,8 @@ a {
   font-weight: 600;
 }
 
-label{
-  float:left;
+label {
+  float: left;
 }
 
 #image-preview {
@@ -190,11 +194,10 @@ input {
   margin-bottom: 10px;
 }
 
-#updateProductBtn{
+#updateProductBtn {
   background-color: green;
-  color:white;
-  border:none;
-  border-radius:5px;
-  height:30px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
 }
-
