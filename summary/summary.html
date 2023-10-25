@@ -15,27 +15,39 @@
   <body>
     <div class="navbar">
       <i class="fa-solid fa-plug"></i>
-      <a class="active" href="">Electronics</a>
+      <a class="active" href="../home/home.html">Electronics</a>
     </div>
 
     <div class="main-div">
       <div class="cards">
         <div class="numberOfProducts">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <p id="productCount">Number of Products: <span id="count">0</span></p>
-          </div>
-          <div class="totalAmount">
-            <i class="fa-solid fa-indian-rupee-sign"></i>
-            <p id="productAmount">Total amount: <span id="amount">0</span></p>
-          </div>
+          <div class="circle one"><i class="fa-solid fa-cart-shopping"></i></div>
+          <p id="productCount">Number of Products: <span id="count">0</span></p>
+        </div>
+        <div class="totalAmount">
+         <div class="circle two"> <i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <p id="productAmount">Total amount: <span id="amount">0</span></p>
+        </div>
       </div>
       <div class="ranges">
-        <div><p> < Rs.500</p></div>
-        <div><p> < Rs.2000 </p></div>
-        <div><p> < Rs.5000</p></div>
-        <div><p> < Rs.20000</p></div>
-        <div><p> < Rs.50000</p></div>
-        <div><p> < Rs.100000</p></div>
+        <div>
+          <span class="less less-500"> < Rs.500</span><span class="right" id="less-500"></span>
+        </div>
+        <div>
+          <span class="less less-2000"> < Rs.2000 </span><span class="right" id="less-2000"></span>
+        </div>
+        <div>
+          <span class="less less-5000"> < Rs.5000</span><span class="right" id="less-5000"></span>
+        </div>
+        <div>
+          <span class="less less-20000"> < Rs.20000</span><span class="right" id="less-20000"></span>
+        </div>
+        <div>
+          <span class="less less-50000"> < Rs.50000</span><span class="right" id="less-50000"></span>
+        </div>
+        <div>
+          <span class="less less-100000"> < Rs.100000</span><span class="right" id="less-100000"></span>
+        </div>
       </div>
     </div>
     <script src="summary.js"></script>

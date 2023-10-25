@@ -62,6 +62,7 @@ a {
 .sidebar ul {
   list-style: none;
   padding: 0;
+
 }
 
 .sidebar i {
@@ -75,7 +76,7 @@ a {
 
 .sidebar a {
   color: #333;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .center-div {
