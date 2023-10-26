@@ -36,11 +36,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 10px;
 }
-.one{
+
+.one {
   background-color: rgb(255, 0, 174);
 }
-.two{
+.two {
   background-color: yellow;
 }
 
@@ -105,55 +107,70 @@ i {
   align-items: center;
   padding: 10px;
   background-color: white;
-  width:80%;
-  margin-left:150px;
-  margin-top:30px;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 30px;
   border-radius: 5px;
-  margin-bottom:50px;
+  margin-bottom: 50px;
 }
 
-.ranges div {
-  border: 1px solid grey;
-  box-shadow: 2px 2px 1px grey;
-  width: 75%;
-  height:20px;
-  padding: 20px 10px;
-  margin: 5px;
-  border-radius: 5px;
+#myChart {
+  width: 100%;
 }
 
-.right {
-  float: right;
-  font-size: medium;
+@media screen and (max-width: 595px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards div {
+    width: 80%;
+    margin: 10px;
+  }
+
+  i {
+    font-size: 20px;
+  }
+
+  .cards .circle {
+    width: 50px;
+    height: 50px;
+  }
 }
 
-.less{
-  border-radius: 5px;
-  font-size:large;
-  font-family:Arial, Helvetica, sans-serif;
-  padding: 10px;
+@media screen and (max-width: 500px) {
+  .ranges {
+    height: 50vh;
+  }
+
+  #myChart {
+    height: 100%;
+  }
+  .circle {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+  }
 }
 
-.less-500{
-  background-color:rgb(209, 250, 169) ;
-}
+@media screen and (max-width: 281px) {
+  .ranges {
+    height: 40vh;
+    margin-left:7%;
+  }
 
-.less-2000{
-  background-color:rgb(231, 177, 138) ;
-}
+  #myChart {
+    width: 50%;
+    height: 100%;
+  }
 
-.less-5000{
-  background-color:rgb(153, 181, 234);
-}
+  .cards div {
+    padding: 10px;
+  }
 
-.less-20000{
-  background-color: rgb(231, 206, 143);
-}
-
-.less-50000{
-  background-color: rgb(237, 163, 237);
-}
-
-.less-100000{
-  background-color:rgb(247, 149, 201);
+  .cards .circle {
+    width: 25px;
+    height: 25px;
+  }
 }

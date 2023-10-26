@@ -138,6 +138,11 @@ a {
   color: #333;
 }
 
+
+#menu-icon{
+  display: none;
+}
+
 @media screen and (max-width: 550px) {
   .sidebar {
     display: none;
@@ -157,6 +162,10 @@ a {
     width: 100%;
   }
 
+  #menu-icon{
+    display: block;
+  }
+
   .center-div {
     width: 100%;
     margin-left: 0;
@@ -171,6 +180,8 @@ a {
     margin-right: 30px;
   }
 }
+
+
 
 @media screen and (max-width: 768px) {
   .sidebar a {

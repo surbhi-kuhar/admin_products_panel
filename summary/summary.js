@@ -62,20 +62,35 @@ function updateTotalAmount() {
 // Call the updateTotalAmount function to initialize the total amount
 updateTotalAmount();
 
-const less500 = document.getElementById("less-500");
-less500.innerHTML = `<b>${amount500}</b>`;
+const ctx = document.getElementById("myChart");
 
-const less2000 = document.getElementById("less-2000");
-less2000.innerHTML = `<b>${amount2000}</b>`;
-
-const less5000 = document.getElementById("less-5000");
-less5000.innerHTML = `<b>${amount5000}</b>`;
-
-const less20000 = document.getElementById("less-20000");
-less20000.innerHTML = `<b>${amount20000}</b>`;
-
-const less50000 = document.getElementById("less-50000");
-less50000.innerHTML = `<b>${amount50000}</b>`;
-
-const less100000 = document.getElementById("less-100000");
-less100000.innerHTML = `<b>${amount100000}</b>`;
+new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: ["<500", "<2000", "<5000", "<20000", "<50000", "<100000"],
+    datasets: [
+      {
+        label: "Number of products with price",
+        data: [
+          amount500,
+          amount2000,
+          amount5000,
+          amount20000,
+          amount50000,
+          amount100000,
+        ],
+        borderWidth: 1,
+        barThickness: 25,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false
+  },
+});
