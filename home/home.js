@@ -2,9 +2,8 @@ function getProductsFromLocalStorage() {
   var storedData = localStorage.getItem("productData");
 
   if (storedData) {
-    // Parse the JSON string to get the object
+    // parsing the JSON string to get the object
     var productDataArray = JSON.parse(storedData);
-
     return productDataArray;
   } else {
     return [];
@@ -92,7 +91,6 @@ function displayProducts(products, container) {
     const closeButton = document.getElementsByClassName("close")[0];
     closeButton.addEventListener("click", closeModal);
 
-    // Event listener for the "Update Product" button in the modal
     var image = document.querySelector("#update-image-input");
     var uploadedImage = "";
 
@@ -114,15 +112,14 @@ function displayProducts(products, container) {
       }
     });
 
+    // Event listener for the "Update Product" button in the modal
     const updateProductButton = document.getElementById("updateProductBtn");
     updateProductButton.addEventListener("click", function () {
-      // Get updated values from the modal inputs
       const updatedProductDescription = document.getElementById(
         "updateProductDescription"
       ).value;
       const updatedProductPrice =
         document.getElementById("updateProductPrice").value;
-
       // Update the product data in localStorage
       const existingProducts = getProductsFromLocalStorage();
       console.log(existingProducts);
@@ -148,7 +145,11 @@ function displayProducts(products, container) {
         displayProducts(updatedProducts, productListContainer);
 
         // Close the modal
-        closeModal();
+        swal({
+          title: "Success",
+          text: "Product Updated Successfully",
+          icon: "success",
+        });closeModal();
       } else {
         alert("Product not found. Unable to update.");
       }
@@ -191,7 +192,7 @@ function deleteProduct(productName) {
 
   if (productIndex !== -1) {
     // Remove the product from the array
-    existingProducts.splice(productIndex, 1);
+    existingProducts.splice(productIndex, 1); // remove one element from the given index
 
     // Store the updated array in localStorage
     localStorage.setItem("productData", JSON.stringify(existingProducts));
@@ -201,8 +202,12 @@ function deleteProduct(productName) {
     var readPageProducts = getProductsFromLocalStorage();
     displayProducts(readPageProducts, readPageListContainer);
 
-    // Optionally, you can provide feedback to the user (e.g., show a success message)
-    alert("Product deleted successfully!");
+    swal({
+      title: "Success",
+      text: "Product Deleted Successfully",
+      icon: "success",
+    });
+
   } else {
     // The product doesn't exist, show an alert
     alert("Product does not exist. Cannot delete.");
@@ -214,18 +219,18 @@ var productListContainer = document.querySelector(".list-of-products");
 var products = getProductsFromLocalStorage();
 displayProducts(products, productListContainer);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const menuIcon = document.getElementById("menu-icon");
-  const menuDropdown = document.getElementById("menu-dropdown");
+const menuIcon = document.getElementById("menu-icon");
+const menuDropdown = document.getElementById("menu-dropdown");
 
-  menuIcon.addEventListener("click", function () {
-    menuDropdown.classList.toggle("show-dropdown");
-  });
-
-  window.addEventListener("click", function (event) {
-    if (!event.target.matches("#menu-icon") && !event.target.matches("#menu-dropdown")) {
-      menuDropdown.classList.remove("show-dropdown");
-    }
-  });
+menuIcon.addEventListener("click", function () {
+  menuDropdown.classList.toggle("show-dropdown"); // toggles the properties on this classname
 });
 
+window.addEventListener("click", function (event) {
+  if (
+    !event.target.matches("#menu-icon") &&
+    !event.target.matches("#menu-dropdown") // checking that click is made on screen except menu-icon and menu-dropdown
+  ) {
+    menuDropdown.classList.remove("show-dropdown"); // close the dropdown
+  }
+});

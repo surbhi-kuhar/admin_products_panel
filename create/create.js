@@ -3,7 +3,7 @@ console.log("script executed");
 document
   .getElementById("submit-btn")
   .addEventListener("click", function (event) {
-    event.preventDefault();
+    event.preventDefault(); // prevent the page from reloading
 
     // Get the values from the form
     var productName = document.getElementById("productName").value;
@@ -11,6 +11,27 @@ document
       document.getElementById("productDescription").value;
     var productPrice = document.getElementById("productPrice").value;
 
+    var image = document.querySelector("#image-input");
+    var uploadedImage = "";
+
+    image.addEventListener("change", () => {
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        uploadedImage = reader.result;
+        console.log(reader.result);
+
+        document.querySelector("#image-preview").style.display = "block";
+        document.querySelector(
+          "#image-preview"
+        ).style.backgroundImage = `url(${uploadedImage})`;
+      });
+
+      if (image.files[0]) {
+        reader.readAsDataURL(image.files[0]);
+      }
+    });
+
+    // creation of our new product object
     var productData = {
       name: productName,
       description: productDescription,
@@ -24,6 +45,7 @@ document
     if (!Array.isArray(existingProducts)) {
       existingProducts = [];
     }
+
     // Append the new product to the existing array
     existingProducts.push(productData);
 
@@ -33,34 +55,15 @@ document
     // Store the updated array in localStorage
     localStorage.setItem("productData", updatedProductDataString);
 
-    Swal.fire("Success", "Product created successfully", "success").then(
-      (result) => {
-        if (result.isConfirmed) {
-          document.location.href = "../home/home.html";
-        }
+    swal({
+      title: "Success",
+      text: "Product Created Successfully",
+      icon: "success",
+    }).then((result) => {
+      if (result) {
+        window.location.href = "../home/home.html";
       }
-    );
-
+    });
     // Reset the form
     document.getElementById("form").reset();
   });
-
-var image = document.querySelector("#image-input");
-var uploadedImage = "";
-
-image.addEventListener("change", () => {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => {
-    uploadedImage = reader.result;
-    console.log(reader.result);
-
-    document.querySelector("#image-preview").style.display = "block";
-    document.querySelector(
-      "#image-preview"
-    ).style.backgroundImage = `url(${uploadedImage})`;
-  });
-
-  if (image.files[0]) {
-    reader.readAsDataURL(image.files[0]);
-  }
-});

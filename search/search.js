@@ -1,10 +1,11 @@
 function performSearch() {
-  var query = searchInput.value.trim(); // Trim any leading/trailing white spaces
+  var query = searchInput.value.trim();  // Trim any leading/trailing white spaces
   if (query === "") {
     searchResultsContainer.innerHTML = "Invalid product name"; // Clear the search results container
     return;
   }
   var results = searchProducts(query);
+  console.log(results);
   displaySearchResults(results, searchResultsContainer);
 }
 

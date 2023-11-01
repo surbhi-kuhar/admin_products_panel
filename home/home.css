@@ -259,10 +259,10 @@ input {
 
 #updateProductBtn {
   background-color: green;
-  color: black;
+  color: white;
   border: none;
   border-radius: 5px;
-  height:200vh;
+  height:30px;
 }
 
 .menu-dropdown {

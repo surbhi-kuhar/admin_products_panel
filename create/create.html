@@ -11,14 +11,13 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="sweetalert2.min.css">
-
+    
     <link rel="stylesheet" href="create.css" />
   </head>
   <body>
     <div class="navbar">
       <i class="fa-solid fa-plug"></i>
-      <a class="active" href="/home/home.html">Electronics</a>
+      <a href="/home/home.html">Electronics</a>
     </div>
 
     <div class="center-div">
@@ -39,7 +38,6 @@
           type="number"
           id="productPrice"
           name="productPrice"
-          step="0.01"
           required
         />
 
@@ -49,10 +47,12 @@
         <button type="submit" id="submit-btn">
           <i class="fa-solid fa-plus"></i> Create Product
         </button>
+
       </form>
     </div>
 
     <script src="create.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    </body>
 </html>

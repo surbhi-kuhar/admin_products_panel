@@ -11,11 +11,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    
+    
   </head>
   <body>
     <div class="navbar">
      <div> <i class="fa-solid fa-plug"></i>
-      <a class="active" href="">Electronics</a></div>
+      <a href="">Electronics</a></div>
       <i class="fa-solid fa-bars" id="menu-icon"></i>
       <div class="menu-dropdown" id="menu-dropdown">
         <ul>
@@ -48,7 +50,7 @@
             <textarea id="updateProductDescription" rows="4"></textarea>
     
             <label for="updateProductPrice">Product Price:</label>
-            <input type="number" id="updateProductPrice" step="0.01" />
+            <input type="number" id="updateProductPrice" />
     
             <input
               type="file"
@@ -64,6 +66,9 @@
     
     </div>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
     <script src="home.js"></script>
+   
   </body>
 </html>
