@@ -1,5 +1,24 @@
 console.log("script executed");
 
+var image = document.querySelector("#image-input");
+var uploadedImage = "";
+
+image.addEventListener("change", () => {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    uploadedImage = reader.result;
+    console.log(reader.result);
+
+    var imagePreview = document.querySelector("#image-preview");
+    imagePreview.style.display = "block"; // Display the image preview
+    imagePreview.style.backgroundImage = `url(${uploadedImage})`;
+  });
+
+  if (image.files[0]) {
+    reader.readAsDataURL(image.files[0]);
+  }
+});
+
 document
   .getElementById("submit-btn")
   .addEventListener("click", function (event) {
@@ -10,26 +29,6 @@ document
     var productDescription =
       document.getElementById("productDescription").value;
     var productPrice = document.getElementById("productPrice").value;
-
-    var image = document.querySelector("#image-input");
-    var uploadedImage = "";
-
-    image.addEventListener("change", () => {
-      const reader = new FileReader();
-      reader.addEventListener("load", () => {
-        uploadedImage = reader.result;
-        console.log(reader.result);
-
-        document.querySelector("#image-preview").style.display = "block";
-        document.querySelector(
-          "#image-preview"
-        ).style.backgroundImage = `url(${uploadedImage})`;
-      });
-
-      if (image.files[0]) {
-        reader.readAsDataURL(image.files[0]);
-      }
-    });
 
     // creation of our new product object
     var productData = {
