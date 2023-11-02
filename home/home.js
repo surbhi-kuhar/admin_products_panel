@@ -46,7 +46,7 @@ function displayProducts(products, container) {
     productImage.src = product.image; // Assuming product.image is the URL or base64 data
     productImage.alt = product.name + " Image";
     productImage.style.width = "100px"; // Set the desired width
-    productImage.style.height = "100px"; // Set the desired height
+    productImage.style.height = "150px"; // Set the desired height
 
     // Append the image to its container and the container to the product item
     productImageDiv.appendChild(productImage);
@@ -113,6 +113,7 @@ function displayProducts(products, container) {
     });
 
     // Event listener for the "Update Product" button in the modal
+    // Event listener for the "Update Product" button in the modal
     const updateProductButton = document.getElementById("updateProductBtn");
     updateProductButton.addEventListener("click", function () {
       const updatedProductDescription = document.getElementById(
@@ -120,13 +121,16 @@ function displayProducts(products, container) {
       ).value;
       const updatedProductPrice =
         document.getElementById("updateProductPrice").value;
+
+      // Identify the product by a unique identifier (e.g., product ID)
+      const productId = product.id; // Replace with the actual property that stores the product's unique identifier
+
       // Update the product data in localStorage
       const existingProducts = getProductsFromLocalStorage();
-      console.log(existingProducts);
 
       // Find the index of the product to update
       const productIndex = existingProducts.findIndex(
-        (p) => p.name === product.name
+        (p) => p.id === productId
       );
 
       if (productIndex !== -1) {
@@ -145,11 +149,7 @@ function displayProducts(products, container) {
         displayProducts(updatedProducts, productListContainer);
 
         // Close the modal
-        swal({
-          title: "Success",
-          text: "Product Updated Successfully",
-          icon: "success",
-        });closeModal();
+        closeModal();
       } else {
         alert("Product not found. Unable to update.");
       }
@@ -207,7 +207,6 @@ function deleteProduct(productName) {
       text: "Product Deleted Successfully",
       icon: "success",
     });
-
   } else {
     // The product doesn't exist, show an alert
     alert("Product does not exist. Cannot delete.");
